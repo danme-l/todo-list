@@ -1,7 +1,9 @@
 import Task from './task';
+import Project from './project';
 
 const Storage = (() => {
     let taskList = [];
+    let projectList = [];
     
     // adds task by taskID to local storage
     const addTask = (newTask) => {
@@ -27,8 +29,21 @@ const Storage = (() => {
         taskList = [...newList];
     }
 
+    const getTaskByID = (id) => {
+        // retrieves a task from the list by its ID 
+        return taskList.filter((t) => t.getTaskID() === id)
+    } 
     
-    return {addTask, getTaskList, setTaskList, addTestTask};
+    const addProject = (newProject) => {
+        projectList.push(newProject);
+    }
+
+    const getProjectList = () => projectList;
+
+    return {
+        addTask, getTaskList, setTaskList, addTestTask, getTaskByID,
+        addProject, getProjectList
+    };
 
 })();
 

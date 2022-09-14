@@ -13,7 +13,7 @@ const Task = (title, taskID, desc, dueDate, project, priority) => {
         
         return [title, desc, dueDate, project, priority];
     };
-    return { title, getTitle, getDesc, getDueDate, getPriority, getTaskID, getTask }
+    return { title, priority, getTitle, getDesc, getDueDate, getPriority, getTaskID, getTask }
 };
 
 export default Task;

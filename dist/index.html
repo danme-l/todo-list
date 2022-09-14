@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="style.css">
     <title>To-do List</title>
 </head>
-<body>
+<body id="body">
     <header>
         <h1>To-Do list!</h1>
         <button id="samp-projects-btn">Author's projects</button>
@@ -14,8 +14,42 @@
         <nav id="navbar"></nav>
         <main id="main-content">
             <h1 id="main-content-header"></h1>
-            <div id="task-container"></div>
+            <div id="task-flexbox">
+                <div id="task-container"></div>
+                <div id="task-preview-box" class="hidden"></div>
+            </div>
         </main>
+    </div>
+    <div class="modal modal-wrapper" id="add-task-modal-wrapper">
+        <div id="add-task-modal">
+            <div class="modal-header">
+                <h3>New Task</h3>
+                <button class="modal-close">X</button>
+            </div>
+            <label for="task-title">Task Title</label>
+            <input type="text" name="task-title" id="new-task-title"> <br>
+            <label for="task-desc">Description</label>
+            <input type="text" name="task-desc" id="new-task-desc"> <br>
+            <label for="priority-select">Priority</label>
+            <select id="new-task-priority">
+                <option>High</option>
+                <option>Medium</option>
+                <option>Low</option>
+            </select>
+            <button id="submit-task">Submit</button>
+        </div>
+    </div>
+    <div class="modal modal-wrapper" id="add-project-modal-wrapper">
+        <div id="add-project-modal">
+            <div class="modal-header">
+                <h3>New Project</h3>
+                <button class="modal-close">X</button>
+            </div>
+            <label for="project-title">Project Title</label>
+            <input type="text" name="project-title" id="new-project-title">
+            <button id="submit-project">Submit</button>
+        </div>
+
     </div>
     <footer>Footer!</footer>
     <script src="main.js"></script>

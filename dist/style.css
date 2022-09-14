@@ -1,0 +1,116 @@
+:root {
+    /* color palette ref: https://palettes.shecodes.io/palettes/1313 */
+    --main-color: #ececec; 
+    --second-color: #9fd3c7; 
+    --third-color: #385170; 
+    --fourth-color: #142d4c; 
+}
+
+body {
+    margin:0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+button {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+header, footer { 
+    color: var(--main-color);
+    background-color: var(--fourth-color);
+}
+
+header {
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+header > h1 {
+    /* remove automatic margin added */
+    margin-top: 0;
+    padding: 20px;
+}
+
+#samp-projects-btn {
+    height: 50%;
+    background-color: var(--main-color);
+}
+
+#samp-projects-btn:hover {
+    color: var(--main-color);
+    background-color: var(--second-color);
+}
+
+.add-btn {
+    background-color: transparent;
+    border: 4px solid var(--fourth-color);
+    margin: 5px;
+}
+
+.add-btn:hover{
+    color: var(--main-color);
+    background-color: var(--fourth-color);
+}
+
+#lower-container {
+    display: flex;
+    flex-direction: row;
+    height: 86vh;
+}
+
+/* NAV */
+nav {
+    background-color: var(--second-color);
+    flex: 1;
+}
+
+.nav-section {
+    padding: 10px;
+}
+
+.nav-project:hover {
+    color: var(--main-color);
+    background-color: var(--fourth-color);
+}
+
+main {
+    background-color: var(--main-color);
+    flex: 5;
+}
+
+/* Task Styling */
+.task {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid var(--fourth-color);
+    border-radius: 4px;
+}
+
+.task:hover {
+    color: var(--main-color);
+    background-color: var(--fourth-color);
+
+}
+
+.priority-High {
+    background-color: red;
+}
+
+.priority-Medium {
+    background-color: blue;
+}
+
+.priority-Low {
+    background-color: green;    
+}
+
+footer {
+    height: 4vh;
+}

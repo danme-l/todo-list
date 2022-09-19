@@ -40,9 +40,13 @@ const Storage = (() => {
 
     const getProjectList = () => projectList;
 
+    const setProjectList = (newPList) => {
+        projectList = [...newPList];
+    }
+
     return {
         addTask, getTaskList, setTaskList, addTestTask, getTaskByID,
-        addProject, getProjectList
+        addProject, getProjectList, setProjectList,
     };
 
 })();

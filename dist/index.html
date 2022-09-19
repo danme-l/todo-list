@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
+    <!-- link to the icon source: https://www.flaticon.com/free-icon/to-do-list_2387757?term=to%20do&page=1&position=5&page=1&position=5&related_id=2387757&origin=search -->
+    <link rel="icon" href="./images/to-do-list-icon.png">
+    <script src="https://kit.fontawesome.com/ba6c5b1f7d.js" crossorigin="anonymous"></script>
     <title>To-do List</title>
 </head>
 <body id="body">
     <header>
         <h1>To-Do list!</h1>
-        <button id="samp-projects-btn">Author's projects</button>
+        <button id="samp-projects-btn">Sample</button>
     </header>
     <div id="lower-container">
         <nav id="navbar"></nav>
@@ -36,7 +39,9 @@
                 <option>Medium</option>
                 <option>Low</option>
             </select>
-            <button id="submit-task">Submit</button>
+            <label for="project-select">Project</label>
+            <select id="project-select"></select> <br />
+            <button id="submit-task">Add Task</button>
         </div>
     </div>
     <div class="modal modal-wrapper" id="add-project-modal-wrapper">
@@ -51,7 +56,9 @@
         </div>
 
     </div>
-    <footer>Footer!</footer>
+    <footer class="project-footer">
+        <p>Dan Meleras <a href="https://github.com/danme-l"><i class="fa-brands fa-github"></i></a> || As part of the Odin Project Web Dev Curriculum</p>
+    </footer>
     <script src="main.js"></script>
 </body>
 </html>

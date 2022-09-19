@@ -1,10 +1,12 @@
-const Project = (name) => {
-    let tasks = [];
-    
+const Project = (name, tasks = []) => {    
     const getName = () => name;
     const getTasks = () => tasks;
 
-    return {name, tasks, getName, getTasks}
+    const appendTask = (task) => {
+        tasks.push(task);
+    }
+
+    return {name, tasks, getName, getTasks, appendTask}
 }
 
 export default Project;

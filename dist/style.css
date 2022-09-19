@@ -21,7 +21,7 @@ header, footer {
 }
 
 header {
-    height: 10vh;
+    height: 9vh;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -176,6 +176,12 @@ main {
     height: 2em;
 }
 
+#submit-task {
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 3px;
+}
+
 /* modal Animation */
 @keyframes animatetop {
     from {top: -300px; opacity: 0}
@@ -203,6 +209,26 @@ main {
     transition: visibility 0s 0.4s, opacity 0.4s linear;
   }
 
-footer {
+/* footer {
     height: 4vh;
+} */
+
+.project-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    line-height: 20%;
+    height: 7vh;
+}
+.fa-brands, .fa-circle-left {
+    transition: transform 0.3s ease-in-out;
+}
+
+.fa-brands:hover {
+    transform: rotate(360deg);
+}
+
+.fa-circle-left:hover {
+    transform: rotate(360deg);
 }

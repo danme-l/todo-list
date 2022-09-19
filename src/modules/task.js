@@ -4,16 +4,17 @@ const Task = (title, taskID, desc, dueDate, project, priority) => {
     const getDueDate = () => dueDate;
     const getTaskID = () => taskID;
     const getPriority = () => priority;
+    const getProject = () => project;
 
-    const getTask = (domItem) => {
-        console.log(title);
-        console.log(desc);
-        console.log(dueDate);
-        console.log(priority);
-        
+    const getTask = () => {
         return [title, desc, dueDate, project, priority];
     };
-    return { title, priority, getTitle, getDesc, getDueDate, getPriority, getTaskID, getTask }
+
+    const setProject = (project) => {
+        project = project;
+    };
+     
+    return { title, priority, getTitle, getDesc, getDueDate, getPriority, getTaskID, getTask, getProject, setProject }
 };
 
 export default Task;

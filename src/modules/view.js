@@ -2,10 +2,9 @@ import Task from './task';
 import Project from './project';
 import Storage from './storage';
 import setUpModals from './modals';
-import sampleTasks from './mySampleContent';
+import { sampleTasks, sampleProjects } from './mySampleContent';
 
 const navBar = document.getElementById('navbar');
-const mainContent = document.getElementById('main-content');
 const taskContainer = document.getElementById('task-container');
 const mainSectionTitle = document.getElementById('main-content-header');
 const sampProjBtn = document.getElementById('samp-projects-btn');
@@ -41,16 +40,12 @@ const View = (() => {
         });
         highPriority.innerHTML = "High Priority";
 
-        // TODO each nav-project needs an onclick() that will set the current project
-
         const projectHead = document.createElement('h2');
         projectHead.classList.add('nav-section');
         projectHead.innerHTML = "Projects";
 
         const projectBox = document.createElement('div');
         projectBox.setAttribute('id','project-box');
-
-        // TODO populateProjectsSection();
 
         const addProjectBtn = document.createElement('button');
         addProjectBtn.classList.add('add-btn');
@@ -84,8 +79,9 @@ const View = (() => {
     const loadSamples = () => {
         // loads some sample projects
         Storage.setTaskList(sampleTasks);
-        console.log(sampleTasks);
+        Storage.setProjectList(sampleProjects);
         displayTasks();
+        displayProjects(Storage.getProjectList());
     }
     sampProjBtn.addEventListener('click', loadSamples);
 
@@ -120,8 +116,7 @@ const View = (() => {
         <p>${taskToPreview[0].getDesc()}</p>
         <p class='priority-${taskToPreview[0].getPriority()}'>Priority: ${taskToPreview[0].getPriority()}</p>
         `
-        //taskPreviewBox.style.display ='block';
-        // taskPreviewBox.classList.add(`priority-${taskToPreview[0].getPriority()}`)
+
         taskPreviewBox.classList.replace('hidden','visible');
     };
 
@@ -147,14 +142,14 @@ const View = (() => {
             console.log(Storage.getTaskList().filter((p) => p.getPriority() === 'High'))
             // displayTasks();
         } else {
+            // clear task box
             taskContainer.innerHTML = "";
-
-            // for now this is a string but will eventually be a project
-            mainSectionTitle.innerHTML = newProject;
-            mainContent.append(mainSectionTitle);
-
-            // TODO retrive the project list and load the tasks
-            // newProject.getTasks()
+            // sets the project name as the header
+            mainSectionTitle.innerHTML = newProject.getName();
+            // add each task from that project to the task container
+            newProject.getTasks().forEach((t) => {
+                taskContainer.append(createTaskNode(t));
+            });
         }
 
     }
@@ -168,15 +163,20 @@ const View = (() => {
         });
     };
 
-    const projectBox = document.getElementById('project-box');
-    console.log(projectBox);
+
     const displayProjects = (projectList) => { 
-        // display projects
+        const projectBox = document.getElementById('project-box');
+        projectBox.innerHTML = '';
+
         projectList.forEach((p) => {
             let projectLabel = document.createElement('div');
+            projectLabel.classList.add('nav-section', 'nav-project');
             projectLabel.innerHTML = p.getName();
+            projectLabel.addEventListener('click', (e) => {
+                setCurrentProject(p);
+            });
             projectBox.append(projectLabel);
-        })
+        });
     }
 
     return { init, displayTasks, displayProjects}
